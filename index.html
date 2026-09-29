@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="Computer Literacy Monitoring and Intervention System">
+  <title>CLMIS | Computer Literacy Monitoring and Intervention System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="animated-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">C</div>
+      <div>
+        <strong>CLMIS</strong>
+        <small>Computer Literacy Monitoring and Intervention System</small>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" title="Toggle theme">◐</button>
+      <button id="accessBtn" class="icon-btn" title="Accessibility">Aa</button>
+      <button id="logoutBtn" class="btn danger hidden">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="authView" class="auth-view">
+      <div class="auth-card glass">
+        <div class="logo-orb">CL</div>
+        <p class="eyebrow">OFFICIAL SCHOOL SYSTEM</p>
+        <h1>Computer Literacy Monitoring<br>and Intervention System</h1>
+        <p class="muted">Assess. Classify. Improve. Empower.</p>
+
+        <div class="role-tabs">
+          <button class="role-tab active" data-role="student">Student</button>
+          <button class="role-tab" data-role="teacher">Teacher</button>
+          <button class="role-tab" data-role="admin">Admin</button>
+        </div>
+
+        <form id="loginForm">
+          <label>User ID / Email<input id="loginEmail" autocomplete="username" required></label>
+          <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+          <div class="row-between">
+            <label class="check"><input id="remember" type="checkbox"> Remember me</label>
+            <button type="button" id="forgotBtn" class="link-btn">Forgot password?</button>
+          </div>
+          <button class="btn primary wide" type="submit">Log In</button>
+        </form>
+
+        <div id="studentRegisterBox">
+          <div class="divider">FIRST-TIME USER?</div>
+          <button id="registerBtn" class="btn secondary wide">Create Student Account</button>
+        </div>
+        <p id="authMessage" class="message"></p>
+      </div>
+    </section>
+
+    <section id="appView" class="hidden">
+      <aside class="sidebar">
+        <div class="side-title">CLMIS</div>
+        <nav id="sideNav"></nav>
+      </aside>
+
+      <div class="content">
+        <div id="page"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="registerDialog">
+    <form method="dialog" id="registerForm" class="dialog-card">
+      <button type="button" class="close" id="closeRegister">×</button>
+      <h2>Create Student Account</h2>
+      <p class="muted">Complete your student profile. You can update eligible details later.</p>
+      <div class="grid two">
+        <label>Student Number<input id="rStudentNo" required></label>
+        <label>Full Name<input id="rFullName" required></label>
+        <label>Age<input id="rAge" type="number" min="10" max="100" required></label>
+        <label>Gender<select id="rGender"><option>Male</option><option>Female</option></select></label>
+        <label>Grade Level<select id="rGrade"><option>Grade 11</option><option>Grade 12</option></select></label>
+        <label>Section<select id="rSection"><option>Confucius</option><option>Locke</option><option>Vega</option><option>Sirius</option></select></label>
+        <label>Email<input id="rEmail" type="email" required></label>
+        <label>Device Ownership<select id="rOwnership"><option>Personal</option><option>Shared</option><option>School-Owned</option></select></label>
+        <label>Device Used<select id="rDevice"><option>Desktop Computer</option><option>Laptop</option><option>Tablet</option><option>Smartphone</option></select></label>
+        <label>Internet Access<select id="rInternet"><option>Wi-Fi</option><option>Mobile Data</option><option>Both</option><option>None</option></select></label>
+        <label>Daily Device Usage<select id="rUsage"><option>Less than 1 Hour</option><option>1–2 Hours</option><option>3–4 Hours</option><option>5–6 Hours</option><option>More than 6 Hours</option></select></label>
+        <label>Computer Experience<select id="rExperience"><option>Less than 1 Year</option><option>1–3 Years</option><option>4–6 Years</option><option>More than 6 Years</option></select></label>
+        <label>User ID / Email<input id="rUser" type="email" required></label>
+        <label>Password<input id="rPass" type="password" minlength="8" required></label>
+      </div>
+      <label class="check"><input id="rConsent" type="checkbox" required> I agree to the CLMIS Terms and Privacy Notice.</label>
+      <button class="btn primary wide" type="submit">Create Account</button>
+      <p id="registerMessage" class="message"></p>
+    </form>
+  </dialog>
+
+  <dialog id="accessDialog">
+    <div class="dialog-card">
+      <button class="close" id="closeAccess">×</button>
+      <h2>Accessibility</h2>
+      <label class="check"><input type="checkbox" id="largeText"> Increase text size</label>
+      <label class="check"><input type="checkbox" id="reducedMotion"> Reduce animation</label>
+      <button class="btn secondary wide" id="closeAccess2">Done</button>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
